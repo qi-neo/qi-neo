@@ -6,6 +6,8 @@
 
 **求职方向：嵌入式软件 / C++ 软件开发（2027 届校招）**
 
+📌 个人主页：[qi-neo.github.io](https://qi-neo.github.io/) · 项目状态与实测数据以各仓库 CI 为准
+
 ---
 
 ## 关注方向
@@ -19,7 +21,7 @@
 
 ### [unilidar-driver](https://github.com/qi-neo/unilidar-driver) — 宇树 L1 激光雷达 ROS2 驱动
 
-自行实现 UDP 报文解析与几何换算，发布标准 `PointCloud2` 与 `Imu` 话题，
+自研 CH340 串口（默认）/ UDP（可选）报文解析与几何换算，发布标准 `PointCloud2` 与 `Imu` 话题，
 不依赖官方预编译静态库，可作为官方节点的 drop-in 替换。
 
 - 报文定界只用「帧尾标识 + CRC32」，不硬编码整包长度
@@ -28,7 +30,7 @@
 - 离线自检（项数以仓库 CI 与 docs/selftest-counts.json 为准）+ 变异测试 + 实测定界探针；CI 覆盖双编译器与 ASan/UBSan
 - 附[驱动编写方法论文档](https://github.com/qi-neo/unilidar-driver/blob/main/docs/driver-design.md)
 
-`C++17 · ROS2 · UDP · CRC32 · CI`
+`C++17 · ROS2 · CH340/UART · UDP · CRC32 · CI`
 
 ### [active-suspension-lidar-preview](https://github.com/qi-neo/active-suspension-lidar-preview) — 激光雷达预瞄主动悬架
 
@@ -58,7 +60,7 @@ MaixCAM Pro 与 ESP32 通过 socket TCP 通信控制步进电机的完整实现�
 | 类别 | 内容 |
 |---|---|
 | 语言 | C++（主）、Python |
-| 系统 / 平台 | Linux / POSIX、ROS2（Humble / Jazzy）、香橙派 AI Pro、昇腾 Atlas 310 / 310B |
+| 系统 / 平台 | Linux / POSIX、ROS2（Humble，已在 CI 验证）、香橙派 AI Pro、昇腾 Atlas 310 / 310B |
 | 通信协议 | UDP / 串口（termios、CRC16 / CRC32 帧协议）、TCP |
 | 机器人 | 传感器驱动、通信协议解析、实时控制回路 |
 | 库与工具 | PCL、Eigen、CMake、Git、GitHub Actions、ASan / UBSan |
@@ -66,9 +68,18 @@ MaixCAM Pro 与 ESP32 通过 socket TCP 通信控制步进电机的完整实现�
 
 ## 竞赛获奖
 
-周培源大学生力学竞赛（全国奖、省级二等奖）· 数学建模竞赛 · 创新竞赛
+- 周培源大学生力学竞赛：全国奖、省级二等奖
+- 数学建模竞赛、创新竞赛获奖
+
+> 奖项名称与级别如上；具体获奖年份与完整级别以证书为准，不在公开门面臆测。
 
 ## 联系方式
 
 - GitHub：[@qi-neo](https://github.com/qi-neo)
-- 邮箱：1794194885@qq.com（`@users.noreply.github.com` 是 GitHub 的转发占位地址，收不到信，已换掉）
+- 邮箱：1794194885@qq.com
+
+---
+
+本仓库 README 内容按 [MIT](LICENSE) 许可。展示仓保留姓名与联系邮箱用于求职联系；
+项目仓（代码、论文、硬件 BOM、固件）的隐私与脱敏边界见
+[主动悬架仓库的 `docs/PRIVACY.md`](https://github.com/qi-neo/active-suspension-lidar-preview/blob/main/docs/PRIVACY.md)。
